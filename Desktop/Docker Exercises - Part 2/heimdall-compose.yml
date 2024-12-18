@@ -1,0 +1,14 @@
+services:
+  heimdall:
+    image: lscr.io/linuxserver/heimdall:2.6.3
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/heimdall/config:/config
+    ports:
+      - "8080:80"   # Change host port 80 to 8080
+      - "8443:443"  # Change host port 443 to 8443
+    restart: unless-stopped
